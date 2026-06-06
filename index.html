@@ -143,20 +143,30 @@ body{font-family:'Nunito',sans-serif;background:#f7f5ff;color:var(--text);min-he
 <!-- MENU -->
 <div id="screen-menu" class="screen active">
   <div class="logo">
-    <span class="logo-emoji">📚</span>
     <h1>Grammar Quest</h1>
-    <p>Simple Present & Present Continuous</p>
+    <p>Hiện Tại Đơn & Hiện Tại Tiếp Diễn</p>
+  </div>
+  <div id="best-streak-box"
+      style="text-align:center;
+              margin-top:8px;
+              margin-bottom:10px;
+              font-weight:700;
+              color:#e17055">
+  </div>
+  <div id="weakness-box"
+    style="text-align:center;
+            margin-bottom:16px;">
   </div>
   <div class="cheatsheet">
     <h3>📋 Bảng gợi nhớ</h3>
     <div class="cs-row">
       <div class="cs-card">
-        <div class="lbl">Simple Present</div>
+        <div class="lbl">Hiện Tại Đơn</div>
         <div class="rule">S + V(s/es) — thói quen, sự thật</div>
         <div class="kw"><span>always</span><span>every day</span><span>usually</span><span>often</span></div>
       </div>
       <div class="cs-card cont">
-        <div class="lbl">Present Continuous</div>
+        <div class="lbl">Hiện Tại Tiếp Diễn</div>
         <div class="rule">S + am/is/are + V-ing — đang xảy ra</div>
         <div class="kw"><span>now</span><span>right now</span><span>at the moment</span><span>Look!</span></div>
       </div>
@@ -211,6 +221,7 @@ body{font-family:'Nunito',sans-serif;background:#f7f5ff;color:var(--text);min-he
   </div>
 </div>
 
+
 </div>
 <script>
 // ── SOUND ──
@@ -244,12 +255,12 @@ var MCQ_DATA=[
   {type:'neg',tense:'continuous',q:"They ___ playing outside — it is raining!",answer:"aren't",choices:["don't","doesn't","isn't","aren't"],explain:'Phủ định tiếp diễn số nhiều → <b>aren\'t</b>'},
   {type:'verb',tense:'simple',q:'Anna ___ her teeth twice a day.',answer:'brushes',choices:['brush','brushes','is brushing','are brushing'],explain:'"twice a day" → thói quen lặp lại, Anna là ngôi 3 số ít → <b>brushes</b>'},
   {type:'verb',tense:'continuous',q:'The students ___ a test now.',answer:'are taking',choices:['take','takes','is taking','are taking'],explain:'"now" → hành động đang diễn ra, students (số nhiều) → <b>are taking</b>'},
-  {type:'verb',tense:'simple',q:'My uncle ___ in a hospital.',answer:'works',choices:['work','works','is working','are working'],explain:'Công việc thường xuyên của chú tôi → Simple Present, ngôi 3 số ít → <b>works</b>'},
+  {type:'verb',tense:'simple',q:'My uncle ___ in a hospital.',answer:'works',choices:['work','works','is working','are working'],explain:'Công việc thường xuyên của chú tôi → Hiện Tại Đơn, ngôi 3 số ít → <b>works</b>'},
   {type:'verb',tense:'continuous',q:'I ___ dinner at the moment.',answer:'am cooking',choices:['cook','cooks','am cooking','are cooking'],explain:'"at the moment" → đang xảy ra, I → <b>am cooking</b>'},
-  {type:'aux',tense:'simple',q:'___ they play tennis every weekend?',answer:'Do',choices:['Do','Does','Is','Are'],explain:'"every weekend" → Simple Present, chủ ngữ "they" → <b>Do</b>'},
-  {type:'aux',tense:'continuous',q:'___ she talking on the phone now?',answer:'Is',choices:['Do','Does','Is','Are'],explain:'"now" + talking (V-ing) → Present Continuous, she → <b>Is</b>'},
-  {type:'neg',tense:'simple',q:'We ___ watch TV during class.',answer:"don't",choices:["don't","doesn't","isn't","aren't"],explain:'Phủ định ở Simple Present với chủ ngữ "we" → <b>don\'t</b>'},
-  {type:'neg',tense:'continuous',q:'He ___ studying now.',answer:"isn't",choices:["don't","doesn't","isn't","aren't"],explain:'"now" → Present Continuous, he → <b>isn\'t</b>'},
+  {type:'aux',tense:'simple',q:'___ they play tennis every weekend?',answer:'Do',choices:['Do','Does','Is','Are'],explain:'"every weekend" → Hiện Tại Đơn, chủ ngữ "they" → <b>Do</b>'},
+  {type:'aux',tense:'continuous',q:'___ she talking on the phone now?',answer:'Is',choices:['Do','Does','Is','Are'],explain:'"now" + talking (V-ing) → Hiện Tại Tiếp Diễn, she → <b>Is</b>'},
+  {type:'neg',tense:'simple',q:'We ___ watch TV during class.',answer:"don't",choices:["don't","doesn't","isn't","aren't"],explain:'Phủ định ở Hiện Tại Đơn với chủ ngữ "we" → <b>don\'t</b>'},
+  {type:'neg',tense:'continuous',q:'He ___ studying now.',answer:"isn't",choices:["don't","doesn't","isn't","aren't"],explain:'"now" → Hiện Tại Tiếp Diễn, he → <b>isn\'t</b>'},
   {type:'verb',tense:'simple',q:'The train ___ at 7 a.m. every day.',answer:'leaves',choices:['leave','leaves','is leaving','are leaving'],explain:'Lịch trình cố định + ngôi 3 số ít → <b>leaves</b>'},
   {type:'verb',tense:'continuous',q:'Look! The horse ___ fast.',answer:'is running',choices:['runs','run','is running','are running'],explain:'"Look!" → hành động đang diễn ra, horse (số ít) → <b>is running</b>'},
 ];
@@ -273,71 +284,169 @@ var FILL_DATA=[
   {tense:'simple',q:'My father ___ to work by bus.',answer:'goes',hint:'go',explain:'Thói quen đi làm hằng ngày, ngôi 3 số ít → <b>goes</b>'},
   {tense:'continuous',q:'I ___ a sandwich at the moment.',answer:'am eating',hint:'eat',explain:'"at the moment" → đang xảy ra, I → <b>am eating</b>'},
   {tense:'simple',q:'The baby ___ a lot.',answer:'cries',hint:'cry',explain:'Đặc điểm thường xuyên của em bé, ngôi 3 số ít → <b>cries</b>'},
-  {tense:'continuous',q:'She ___ her project now.',answer:'is finishing',hint:'finish',explain:'"now" → Present Continuous, she → <b>is finishing</b>'},
+  {tense:'continuous',q:'She ___ her project now.',answer:'is finishing',hint:'finish',explain:'"now" → Hiện Tại Tiếp Diễn, she → <b>is finishing</b>'},
   {tense:'simple',q:'They ___ football every Sunday.',answer:'play',hint:'play',explain:'"every Sunday" → thói quen, they → <b>play</b>'},
   {tense:'continuous',q:'We ___ for the bus right now.',answer:'are waiting',hint:'wait',explain:'"right now" → hành động đang diễn ra → <b>are waiting</b>'},
   {tense:'simple',q:'A teacher ___ students.',answer:'helps',hint:'help',explain:'Nêu chức năng/chung chung của giáo viên → ngôi 3 số ít → <b>helps</b>'},
-  {tense:'continuous',q:'The bird ___ on the roof now.',answer:'is sitting',hint:'sit',explain:'"now" → Present Continuous, bird (số ít) → <b>is sitting</b>'},
+  {tense:'continuous',q:'The bird ___ on the roof now.',answer:'is sitting',hint:'sit',explain:'"now" → Hiện Tại Tiếp Diễn, bird (số ít) → <b>is sitting</b>'},
 ];
 
 // ── DATA: ORDER (sắp xếp câu — các từ xáo trộn) ──
 var ORDER_DATA=[
   {tense:'simple',words:['She','eats','rice','every','day','.'],answer:'She eats rice every day .',explain:'Thói quen → S + V(s)'},
   {tense:'continuous',words:['He','is','playing','football','now','.'],answer:'He is playing football now .',explain:'"now" → S + is + V-ing'},
-  {tense:'simple',words:['They','always','walk','to','school','.'],answer:'They always walk to school .',explain:'"always" → Simple Present'},
+  {tense:'simple',words:['They','always','walk','to','school','.'],answer:'They always walk to school .',explain:'"always" → Hiện Tại Đơn'},
   {tense:'continuous',words:['We','are','watching','a','movie','.'],answer:'We are watching a movie .',explain:'S + are + V-ing'},
   {tense:'simple',words:['My','dog','barks','at','strangers','.'],answer:'My dog barks at strangers .',explain:'Hành vi thông thường → barks'},
   {tense:'continuous',words:['Mom','is','cooking','dinner','right','now','.'],answer:'Mom is cooking dinner right now .',explain:'"right now" → is + V-ing'},
-  {tense:'simple',words:['The','sun','rises','in','the','east','.'],answer:'The sun rises in the east .',explain:'Sự thật → Simple Present'},
+  {tense:'simple',words:['The','sun','rises','in','the','east','.'],answer:'The sun rises in the east .',explain:'Sự thật → Hiện Tại Đơn'},
   {tense:'continuous',words:['The','birds','are','singing','outside','.'],answer:'The birds are singing outside .',explain:'Đang xảy ra → are + V-ing'},
   {tense:'simple',words:['I','drink','milk','every','morning','.'],answer:'I drink milk every morning .',explain:'Thói quen + I → drink'},
   {tense:'continuous',words:['She','is','reading','a','book','now','.'],answer:'She is reading a book now .',explain:'"now" → is + V-ing'},
   {tense:'simple',words:['He','does','not','like','spicy','food','.'],answer:'He does not like spicy food .',explain:'Phủ định ngôi 3 số ít → does not'},
   {tense:'continuous',words:['Look','!','A','cat','is','climbing','the','tree','.'],answer:'Look ! A cat is climbing the tree .',explain:'"Look!" + is + V-ing'},
-  {tense:'simple',words:['She','walks','to','school','every','day','.'],answer:'She walks to school every day .',explain:'"every day" → thói quen hằng ngày → Simple Present'},
+  {tense:'simple',words:['She','walks','to','school','every','day','.'],answer:'She walks to school every day .',explain:'"every day" → thói quen hằng ngày → Hiện Tại Đơn'},
   {tense:'continuous',words:['They','are','eating','lunch','now','.'],answer:'They are eating lunch now .',explain:'"now" → đang diễn ra → are + V-ing'},
-  {tense:'simple',words:['My','father','drives','to','work','.'],answer:'My father drives to work .',explain:'Hoạt động thường xuyên → Simple Present, drives'},
-  {tense:'continuous',words:['I','am','doing','my','homework','.'],answer:'I am doing my homework .',explain:'I + am + V-ing → Present Continuous'},
-  {tense:'simple',words:['The','shop','opens','at','eight','.'],answer:'The shop opens at eight .',explain:'Giờ mở cửa cố định → Simple Present'},
-  {tense:'continuous',words:['She','is','drawing','a','picture','.'],answer:'She is drawing a picture .',explain:'is + drawing → Present Continuous'},
-  {tense:'simple',words:['We','visit','our','grandparents','often','.'],answer:'We often visit our grandparents .',explain:'"often" → dấu hiệu của Simple Present'},
+  {tense:'simple',words:['My','father','drives','to','work','.'],answer:'My father drives to work .',explain:'Hoạt động thường xuyên → Hiện Tại Đơn, drives'},
+  {tense:'continuous',words:['I','am','doing','my','homework','.'],answer:'I am doing my homework .',explain:'I + am + V-ing → Hiện Tại Tiếp Diễn'},
+  {tense:'simple',words:['The','shop','opens','at','eight','.'],answer:'The shop opens at eight .',explain:'Giờ mở cửa cố định → Hiện Tại Đơn'},
+  {tense:'continuous',words:['She','is','drawing','a','picture','.'],answer:'She is drawing a picture .',explain:'is + drawing → Hiện Tại Tiếp Diễn'},
+  {tense:'simple',words:['We','visit','our','grandparents','often','.'],answer:'We often visit our grandparents .',explain:'"often" → dấu hiệu của Hiện Tại Đơn'},
   {tense:'continuous',words:['The','children','are','laughing','.'],answer:'The children are laughing .',explain:'are + laughing → hành động đang diễn ra'},
-  {tense:'simple',words:['Birds','build','nests','in','trees','.'],answer:'Birds build nests in trees .',explain:'Sự thật/chung chung về loài chim → Simple Present'},
-  {tense:'continuous',words:['Mom','is','talking','to','a','neighbor','.'],answer:'Mom is talking to a neighbor .',explain:'is + talking → Present Continuous'},
+  {tense:'simple',words:['Birds','build','nests','in','trees','.'],answer:'Birds build nests in trees .',explain:'Sự thật/chung chung về loài chim → Hiện Tại Đơn'},
+  {tense:'continuous',words:['Mom','is','talking','to','a','neighbor','.'],answer:'Mom is talking to a neighbor .',explain:'is + talking → Hiện Tại Tiếp Diễn'},
 ];
 
 // ── DATA: IDENTIFY ──
 var ID_DATA=[
-  {q:'She watches TV every evening.',answer:'Simple Present',explain:'"every evening" → thói quen → Simple Present'},
-  {q:'He is playing football right now.',answer:'Present Continuous',explain:'"right now" + is playing → Present Continuous'},
-  {q:'The sun rises in the east.',answer:'Simple Present',explain:'Sự thật tự nhiên → Simple Present'},
-  {q:'Mom is cooking dinner at the moment.',answer:'Present Continuous',explain:'"at the moment" → Present Continuous'},
-  {q:"I don't like spicy food.",answer:'Simple Present',explain:'Cảm xúc / trạng thái → Simple Present'},
-  {q:'They are swimming in the pool now.',answer:'Present Continuous',explain:'"now" + are swimming → Present Continuous'},
-  {q:'Dogs bark at strangers.',answer:'Simple Present',explain:'Hành vi thông thường → Simple Present'},
-  {q:'Look! A bird is sitting on the fence.',answer:'Present Continuous',explain:'"Look!" + is sitting → Present Continuous'},
-  {q:'We always eat breakfast together.',answer:'Simple Present',explain:'"always" → thói quen → Simple Present'},
-  {q:'She is reading a book in her room now.',answer:'Present Continuous',explain:'"now" → Present Continuous'},
-  {q:"He doesn't play video games on weekdays.",answer:'Simple Present',explain:'"on weekdays" → thói quen → Simple Present'},
-  {q:'The children are running to the bus stop!',answer:'Present Continuous',explain:'Đang xảy ra → Present Continuous'},
-  {q:'Water boils at 100 degrees Celsius.',answer:'Simple Present',explain:'Sự thật khoa học → Simple Present'},
-  {q:'Dad is fixing the bicycle in the yard now.',answer:'Present Continuous',explain:'"now" + is fixing → Present Continuous'},
-  {q:'She goes jogging every morning.',answer:'Simple Present',explain:'"every morning" → thói quen → Simple Present'},
-  {q:'I am talking to my friend now.',answer:'Present Continuous',explain:'"now" + am talking → Present Continuous'},
-  {q:'Cats like milk.',answer:'Simple Present',explain:'Sự thật chung về loài mèo → Simple Present'},
-  {q:'The teacher is explaining the lesson.',answer:'Present Continuous',explain:'is explaining → hành động đang diễn ra'},
-  {q:'We usually have dinner at 7 p.m.',answer:'Simple Present',explain:'"usually" → dấu hiệu của Simple Present'},
-  {q:'Look! The bus is coming.',answer:'Present Continuous',explain:'"Look!" + is coming → Present Continuous'},
-  {q:'My brother plays chess well.',answer:'Simple Present',explain:'Thói quen/kỹ năng thường xuyên → Simple Present'},
-  {q:'They are cleaning the classroom now.',answer:'Present Continuous',explain:'"now" + are cleaning → Present Continuous'},
-  {q:'The Earth moves around the Sun.',answer:'Simple Present',explain:'Sự thật khoa học → Simple Present'},
-  {q:'She is wearing a blue dress today.',answer:'Present Continuous',explain:'today + is wearing → hành động/trạng thái hiện tại → Present Continuous'},
+  {q:'She watches TV every evening.',answer:'Hiện Tại Đơn',explain:'"every evening" → thói quen → Hiện Tại Đơn'},
+  {q:'He is playing football right now.',answer:'Hiện Tại Tiếp Diễn',explain:'"right now" + is playing → Hiện Tại Tiếp Diễn'},
+  {q:'The sun rises in the east.',answer:'Hiện Tại Đơn',explain:'Sự thật tự nhiên → Hiện Tại Đơn'},
+  {q:'Mom is cooking dinner at the moment.',answer:'Hiện Tại Tiếp Diễn',explain:'"at the moment" → Hiện Tại Tiếp Diễn'},
+  {q:"I don't like spicy food.",answer:'Hiện Tại Đơn',explain:'Cảm xúc / trạng thái → Hiện Tại Đơn'},
+  {q:'They are swimming in the pool now.',answer:'Hiện Tại Tiếp Diễn',explain:'"now" + are swimming → Hiện Tại Tiếp Diễn'},
+  {q:'Dogs bark at strangers.',answer:'Hiện Tại Đơn',explain:'Hành vi thông thường → Hiện Tại Đơn'},
+  {q:'Look! A bird is sitting on the fence.',answer:'Hiện Tại Tiếp Diễn',explain:'"Look!" + is sitting → Hiện Tại Tiếp Diễn'},
+  {q:'We always eat breakfast together.',answer:'Hiện Tại Đơn',explain:'"always" → thói quen → Hiện Tại Đơn'},
+  {q:'She is reading a book in her room now.',answer:'Hiện Tại Tiếp Diễn',explain:'"now" → Hiện Tại Tiếp Diễn'},
+  {q:"He doesn't play video games on weekdays.",answer:'Hiện Tại Đơn',explain:'"on weekdays" → thói quen → Hiện Tại Đơn'},
+  {q:'The children are running to the bus stop!',answer:'Hiện Tại Tiếp Diễn',explain:'Đang xảy ra → Hiện Tại Tiếp Diễn'},
+  {q:'Water boils at 100 degrees Celsius.',answer:'Hiện Tại Đơn',explain:'Sự thật khoa học → Hiện Tại Đơn'},
+  {q:'Dad is fixing the bicycle in the yard now.',answer:'Hiện Tại Tiếp Diễn',explain:'"now" + is fixing → Hiện Tại Tiếp Diễn'},
+  {q:'She goes jogging every morning.',answer:'Hiện Tại Đơn',explain:'"every morning" → thói quen → Hiện Tại Đơn'},
+  {q:'I am talking to my friend now.',answer:'Hiện Tại Tiếp Diễn',explain:'"now" + am talking → Hiện Tại Tiếp Diễn'},
+  {q:'Cats like milk.',answer:'Hiện Tại Đơn',explain:'Sự thật chung về loài mèo → Hiện Tại Đơn'},
+  {q:'The teacher is explaining the lesson.',answer:'Hiện Tại Tiếp Diễn',explain:'is explaining → hành động đang diễn ra'},
+  {q:'We usually have dinner at 7 p.m.',answer:'Hiện Tại Đơn',explain:'"usually" → dấu hiệu của Hiện Tại Đơn'},
+  {q:'Look! The bus is coming.',answer:'Hiện Tại Tiếp Diễn',explain:'"Look!" + is coming → Hiện Tại Tiếp Diễn'},
+  {q:'My brother plays chess well.',answer:'Hiện Tại Đơn',explain:'Thói quen/kỹ năng thường xuyên → Hiện Tại Đơn'},
+  {q:'They are cleaning the classroom now.',answer:'Hiện Tại Tiếp Diễn',explain:'"now" + are cleaning → Hiện Tại Tiếp Diễn'},
+  {q:'The Earth moves around the Sun.',answer:'Hiện Tại Đơn',explain:'Sự thật khoa học → Hiện Tại Đơn'},
+  {q:'She is wearing a blue dress today.',answer:'Hiện Tại Tiếp Diễn',explain:'today + is wearing → hành động/trạng thái hiện tại → Hiện Tại Tiếp Diễn'},
 ];
 
 // ── STATE ──
 var mode='mcq',questions=[],current=0,score=0,streak=0,maxStreak=0,results=[],answered=false;
 var orderSelected=[]; // for sentence order mode
 
+var bestStreak = parseInt(localStorage.getItem('bestStreak') || '0');
+var modeStats = JSON.parse(
+  localStorage.getItem('modeStats') ||
+  '{"mcq":{"sum":0,"count":0},"fill":{"sum":0,"count":0},"order":{"sum":0,"count":0},"id":{"sum":0,"count":0}}'
+);
+
+function updateBestStreakDisplay(){
+  setHTML(
+    'best-streak-box',
+    '🏆 Kỷ lục đúng liên tiếp: <b>' + bestStreak + '</b> câu'
+  );
+}
+function updateWeaknessDisplay(){
+
+  var stats = JSON.parse(
+    localStorage.getItem('modeStats') ||
+    '{"mcq":{"sum":0,"count":0},"fill":{"sum":0,"count":0},"order":{"sum":0,"count":0},"id":{"sum":0,"count":0}}'
+  );
+  
+  var tenseStats = JSON.parse(
+    localStorage.getItem('tenseStats') ||
+    '{"simple":{"wrong":0,"total":0},"continuous":{"wrong":0,"total":0}}'
+  );
+  var simpleAccuracy =
+    tenseStats.simple.total
+      ? 100 * (
+          1 -
+          tenseStats.simple.wrong /
+          tenseStats.simple.total
+        )
+      : 100;
+
+  var continuousAccuracy =
+    tenseStats.continuous.total
+      ? 100 * (
+          1 -
+          tenseStats.continuous.wrong /
+          tenseStats.continuous.total
+        )
+      : 100;
+  
+  var weakTenses = [];
+
+  if(simpleAccuracy < 90){
+    weakTenses.push('Hiện Tại Đơn');
+  }
+
+  if(continuousAccuracy < 90){
+    weakTenses.push('Hiện Tại Tiếp Diễn');
+  }
+
+  var tenseText =
+    weakTenses.length
+      ? weakTenses.join(', ')
+      : '🌟 Tiếp tục phát huy nhé!';
+
+  var scores = {
+    mcq: stats.mcq.count ? stats.mcq.sum / stats.mcq.count : 100,
+    fill: stats.fill.count ? stats.fill.sum / stats.fill.count : 100,
+    order: stats.order.count ? stats.order.sum / stats.order.count : 100,
+    id: stats.id.count ? stats.id.sum / stats.id.count : 100
+  };
+
+  var weakModes = [];
+  if(scores.mcq < 90) weakModes.push('Chọn đáp án');
+  if(scores.fill < 90) weakModes.push('Điền vào chỗ trống');
+  if(scores.order < 90) weakModes.push('Sắp xếp câu');
+  if(scores.id < 90) weakModes.push('Nhận biết thì');
+
+  if(weakModes.length===0){
+    weakModes.push('🌟 Tiếp tục phát huy nhé!');
+  }
+
+
+  setHTML(
+    'weakness-box',
+
+    '<div style="font-size:14px;margin-bottom:4px;">' +
+      (
+        tenseText.startsWith('🌟')
+          ? '<span style="font-weight:400;color:#636e72;">'+
+              tenseText+
+            '</span>'
+          : '<span style="font-weight:700;color:#e17055;">🎯 Cần cải thiện thì:</span> '+
+            '<span style="font-weight:400;color:#636e72;">'+
+              tenseText+
+            '</span>'
+      ) +
+    '</div>' +
+
+    '<div style="font-size:14px;line-height:1.4;">' +
+      '<span style="font-weight:700;color:#e17055;">📝 Cần cải thiện dạng:</span> ' +
+      '<span style="font-weight:400;color:#636e72;">' +
+        weakModes.join(', ') +
+      '</span>' +
+    '</div>'
+  );
+  }
 // ── UTILS ──
 function shuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
 function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');}
@@ -345,6 +454,8 @@ function setText(id,t){document.getElementById(id).textContent=t;}
 function setHTML(id,h){document.getElementById(id).innerHTML=h;}
 
 // ── MENU ──
+updateBestStreakDisplay();
+updateWeaknessDisplay();
 document.querySelectorAll('.mode-card').forEach(function(card){
   card.addEventListener('click',function(){
     mode=card.getAttribute('data-mode');
@@ -356,6 +467,7 @@ document.getElementById('btn-start').addEventListener('click',startGame);
 document.getElementById('btn-next').addEventListener('click',nextQuestion);
 document.getElementById('btn-restart').addEventListener('click',function(){startGame();});
 document.getElementById('btn-menu').addEventListener('click',function(){show('screen-menu');});
+
 
 // ── GAME FLOW ──
 function startGame(){
@@ -405,7 +517,7 @@ function checkMCQ(btn,chosen,answer,explain){
   var ok=chosen===answer;
   btn.classList.add(ok?'correct':'wrong');
   if(!ok) document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===answer)b.classList.add('correct');});
-  afterAnswer(ok,answer,explain);
+  afterAnswer(ok,answer,explain,chosen);
 }
 
 // ── FILL (với hint động từ gốc) ──
@@ -428,7 +540,7 @@ function doCheckFill(q){
   answered=true;inp.disabled=true;
   var ok=val===q.answer.toLowerCase();
   inp.classList.add(ok?'correct':'wrong');
-  afterAnswer(ok,q.answer,q.explain);
+  afterAnswer(ok,q.answer,q.explain,val);
 }
 
 // ── ORDER (sắp xếp câu) ──
@@ -472,7 +584,7 @@ function renderOrder(q){
     var built=orderSelected.map(function(o){return o.word;}).join(' ');
     answered=true;
     var ok=built===q.answer;
-    afterAnswer(ok,q.answer,q.explain);
+    afterAnswer(ok,q.answer,q.explain,built);
   });
 }
 function renderSentenceArea(q){
@@ -499,25 +611,67 @@ function renderID(q){
   var gc=document.getElementById('game-content');
   gc.innerHTML='<div class="q-card"><p class="q-text">"'+q.q+'"</p></div><div class="id-choices" id="id-wrap"></div>';
   var wrap=document.getElementById('id-wrap');
-  ['Simple Present','Present Continuous'].forEach(function(opt){
+  [
+    {
+      en:'Simple Present',
+      vi:'Hiện tại đơn'
+    },
+    {
+      en:'Present Continuous',
+      vi:'Hiện tại tiếp diễn'
+    }
+  ].forEach(function(opt){
     var btn=document.createElement('button');btn.className='id-btn';
-    btn.innerHTML='<div class="ib-title">'+opt+'</div><div class="ib-sub">'+(opt==='Simple Present'?'Hiện tại đơn':'Hiện tại tiếp diễn')+'</div>';
-    btn.addEventListener('click',function(){checkID(btn,opt,q.answer,q.explain);});
+    btn.innerHTML ='<div class="ib-title">'+opt.en+'</div>' + '<div class="ib-sub">'+opt.vi+'</div>';
+    btn.addEventListener('click',function(){checkID(btn,opt.en,q.answer,q.explain);});
     wrap.appendChild(btn);
   });
 }
 function checkID(btn,chosen,answer,explain){
   if(answered)return;answered=true;
   document.querySelectorAll('.id-btn').forEach(function(b){b.disabled=true;});
-  var ok=chosen===answer;
+  var mapped =
+    chosen==='Simple Present'
+      ? 'Hiện Tại Đơn'
+      : 'Hiện Tại Tiếp Diễn';
+
+  var ok = mapped === answer;
   btn.classList.add(ok?'correct':'wrong');
-  if(!ok) document.querySelectorAll('.id-btn').forEach(function(b){if(b.querySelector('.ib-title').textContent===answer)b.classList.add('correct');});
-  afterAnswer(ok,answer,explain);
+  if(!ok){
+    document.querySelectorAll('.id-btn').forEach(function(b){
+
+      var title =
+        b.querySelector('.ib-title').textContent;
+
+      var mappedTitle =
+        title === 'Simple Present'
+          ? 'Hiện Tại Đơn'
+          : 'Hiện Tại Tiếp Diễn';
+
+      if(mappedTitle === answer){
+        b.classList.add('correct');
+      }
+    });
+  }
+  afterAnswer(ok,answer,explain,chosen);
 }
 
 // ── AFTER ANSWER ──
-function afterAnswer(ok,answer,explain){
-  if(ok){score+=10;streak++;if(streak>maxStreak)maxStreak=streak;sndCorrect();}
+function afterAnswer(ok,answer,explain,studentAnswer){
+  if(ok){
+    score += 10;
+    streak++;
+
+    if(streak > maxStreak) maxStreak = streak;
+
+    if(streak > bestStreak){
+      bestStreak = streak;
+      localStorage.setItem('bestStreak', bestStreak);
+      updateBestStreakDisplay();
+    }
+
+    sndCorrect();
+  }
   else{streak=0;sndWrong();}
   setText('score-disp','⭐ '+score);
   var sb=document.getElementById('streak-disp');
@@ -526,7 +680,14 @@ function afterAnswer(ok,answer,explain){
   fb.className='feedback show '+(ok?'ok':'err');
   setText('fb-title',ok?'✓ Đúng rồi! Giỏi lắm! 🎉':'✗ Chưa đúng');
   setHTML('fb-body',(ok?'Đáp án: <b>'+answer+'</b> — ':'Đáp án đúng: <b>'+answer+'</b><br>')+explain);
-  results.push({q:questions[current].q||questions[current].words.join(' '),answer:answer,correct:ok});
+  results.push({
+    mode: mode,
+    tense: questions[current].tense,
+    q: questions[current].q || questions[current].words.join(' '),
+    answer: answer,
+    studentAnswer: studentAnswer,
+    correct: ok
+  });
   document.getElementById('btn-next').style.display='block';
 }
 
@@ -536,24 +697,134 @@ function nextQuestion(){current++;if(current>=questions.length)showResult();else
 function tenseTag(tense){
   if(!tense)return'';
   return tense==='simple'
-    ?'<span class="q-tag tag-s">📗 Simple Present</span><br>'
-    :'<span class="q-tag tag-c">📘 Present Continuous</span><br>';
+    ?'<span class="q-tag tag-s">📗 Hiện Tại Đơn</span><br>'
+    :'<span class="q-tag tag-c">📘 Hiện Tại Tiếp Diễn</span><br>';
 }
 function hilite(s){return s.replace('___','<span class="q-blank">___</span>');}
+// ANALYSIS
+
+
 
 // ── RESULT ──
 function showResult(){
-  sndFinish();show('screen-result');
+  sndFinish();
+  show('screen-result');
   setText('final-score',score);
-  var ok=results.filter(function(r){return r.correct;}).length;
-  setText('stat-correct',ok);setText('stat-wrong',results.length-ok);setText('stat-streak',maxStreak);
+  modeStats[mode].sum += score;
+  modeStats[mode].count++;
+
+  localStorage.setItem(
+    'modeStats',
+    JSON.stringify(modeStats)
+  );
+
+  var ok = results.filter(function(r){
+    return r.correct;
+  }).length;
+
+  var simpleWrong = 0;
+  var continuousWrong = 0;
+  var tenseStats = JSON.parse(
+    localStorage.getItem('tenseStats') ||
+    '{"simple":{"wrong":0,"total":0},"continuous":{"wrong":0,"total":0}}'
+  );
+
+  results.forEach(function(r){
+
+    if(r.tense === 'simple'){
+      tenseStats.simple.total++;
+
+      if(!r.correct){
+        tenseStats.simple.wrong++;
+        simpleWrong++;
+      }
+    }
+
+    if(r.tense === 'continuous'){
+      tenseStats.continuous.total++;
+
+      if(!r.correct){
+        tenseStats.continuous.wrong++;
+        continuousWrong++;
+      }
+    }
+  });
+  localStorage.setItem(
+    'tenseStats',
+    JSON.stringify(tenseStats)
+  );
+  var weakness='';
+
+  if(simpleWrong>0 && continuousWrong>0){
+    weakness='🎯 Cần cải thiện: Cả hai thì';
+  }
+  else if(simpleWrong>0){
+    weakness='🎯 Cần cải thiện: Hiện Tại Đơn';
+  }
+  else if(continuousWrong>0){
+    weakness='🎯 Cần cải thiện: Hiện Tại Tiếp Diễn';
+  }
+  else{
+    weakness='🌟 Tiếp tục phát huy nhé!';
+  }
+
+  localStorage.setItem('lastWeakness',weakness);
+  updateWeaknessDisplay();
+  setText('stat-correct',ok);
+  setText('stat-wrong',results.length-ok);
+  setText('stat-streak',maxStreak);
   var msgs=[[90,'🏆 Xuất sắc!','Bạn nắm rất chắc cả hai thì này rồi!'],[70,'🌟 Làm tốt lắm!','Ôn lại một chút là hoàn hảo ngay!'],[50,'👍 Cố lên nào!','Thử lại để đạt điểm cao hơn nhé!'],[0,'📖 Cần ôn thêm!','Đọc lại bảng gợi nhớ và thử lại nhé!']];
   for(var i=0;i<msgs.length;i++){if(score>=msgs[i][0]){setText('result-msg',msgs[i][1]);setText('result-sub',msgs[i][2]);break;}}
+    if(score < 70){
+
+      if(simpleWrong>0 && continuousWrong>0){
+        setText(
+          'result-sub',
+          '📚 Cần ôn thêm cả Hiện Tại Đơn và Hiện Tại Tiếp Diễn.'
+        );
+      }
+      else if(simpleWrong>0){
+        setText(
+          'result-sub',
+          '📗 Cần ôn thêm Hiện Tại Đơn.'
+        );
+      }
+      else if(continuousWrong>0){
+        setText(
+          'result-sub',
+          '📘 Cần ôn thêm Hiện Tại Tiếp Diễn.'
+        );
+      }
+
+      }
   var html='';
   results.forEach(function(r){
-    html+='<div class="review-item"><div class="ri-icon '+(r.correct?'ri-ok':'ri-err')+'">'+(r.correct?'✓':'✗')+'</div><div class="ri-text"><div class="rq">'+r.q+'</div><div class="ra">'+(r.correct?'✓ '+r.answer:'Đúng: '+r.answer)+'</div></div></div>';
+    html += '<div class="review-item">' +
+      '<div class="ri-icon ' + (r.correct ? 'ri-ok' : 'ri-err') + '">' +
+        (r.correct ? '✓' : '✗') +
+      '</div>' +
+      '<div class="ri-text">';
+
+    if(r.mode === 'order'){
+      // Sắp xếp câu
+      html += r.correct
+        ? '<div class="rq">✓ ' + r.answer + '</div>'
+        : '<div class="ra"><b>Bạn làm:</b> ' + r.studentAnswer + '</div>' +
+          '<div class="ra"><b>Đáp án đúng:</b> ' + r.answer + '</div>';
+    } else {
+      // MCQ, Fill, Identify
+      html += '<div class="rq">' + r.q + '</div>';
+
+      html += r.correct
+        ? '<div class="ra">✓ ' + r.answer + '</div>'
+        : '<div class="ra"><b>Bạn làm:</b> ' + r.studentAnswer + '</div>' +
+          '<div class="ra"><b>Đáp án đúng:</b> ' + r.answer + '</div>';
+    }
+
+    html += '</div></div>';
   });
-  setHTML('review-list',html);
+
+  setHTML('review-list', html);
 }
 </script>
 </body>
