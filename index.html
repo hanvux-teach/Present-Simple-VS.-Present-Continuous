@@ -330,6 +330,24 @@ var ID_DATA = [
   {q:'Dad is fixing the bicycle in the yard now.', answer:'Present Continuous', explain:'"now" + is fixing → Present Continuous'},
 ];
 
+
+var FILL_HINTS = {
+  'goes':'go','drinks':'drink','wakes':'wake','does':'do','fly':'fly','listen':'listen',
+  'is running':'run','is sleeping':'sleep','are watching':'watch','is singing':'sing',
+  'is raining':'rain','are playing':'play','is washing':'wash','are running':'run',
+  'Don't':'do'
+};
+function getBaseVerb(ans){ return FILL_HINTS[ans] || ans.replace(/^is |^are |^am /,''); }
+
+var DRAG_DATA = [
+ {tense:'simple', words:['She','goes','to','school','every','day'], answer:'She goes to school every day', explain:'Câu thói quen dùng hiện tại đơn.'},
+ {tense:'continuous', words:['The','dog','is','running','in','the','park'], answer:'The dog is running in the park', explain:'Hành động đang diễn ra.'},
+ {tense:'simple', words:['My','dad','drinks','coffee','every','morning'], answer:'My dad drinks coffee every morning', explain:'Thói quen hằng ngày.'},
+ {tense:'continuous', words:['We','are','watching','a','movie','now'], answer:'We are watching a movie now', explain:'Now → hiện tại tiếp diễn.'},
+ {tense:'simple', words:['Tom','does','his','homework','after','school'], answer:'Tom does his homework after school', explain:'Hiện tại đơn.'},
+ {tense:'continuous', words:['The','kids','are','playing','right','now'], answer:'The kids are playing right now', explain:'Right now → tiếp diễn.'}
+];
+
 // ─────────────────────────────────────────────
 // STATE
 // ─────────────────────────────────────────────
@@ -370,7 +388,9 @@ document.getElementById('btn-menu').addEventListener('click', function(){ sndCli
 // ─────────────────────────────────────────────
 function startGame() {
   sndStart();
-  questions = mode === 'id' ? shuffle(ID_DATA).slice(0,10) : shuffle(MCQ_DATA).slice(0,10);
+  if(mode==='id') questions=shuffle(ID_DATA).slice(0,10);
+  else if(mode==='drag') questions=shuffle(DRAG_DATA).slice(0,Math.min(10,DRAG_DATA.length));
+  else questions=shuffle(MCQ_DATA).slice(0,10);
   current = 0; score = 0; streak = 0; maxStreak = 0; results = [];
   show('screen-game');
   renderQ();
@@ -438,7 +458,7 @@ function renderFill(q) {
     + (q.audio ? '<button class="q-audio-btn" id="abtn">🔊 Nghe câu hỏi</button>' : '')
     + '</div>'
     + '<div class="fill-row">'
-    + '<input class="fill-input" id="fill-in" placeholder="Gõ dạng đúng..." autocomplete="off" autocorrect="off" spellcheck="false">'
+    + '<div style="margin-bottom:10px;color:#636e72;font-weight:700">💡 Động từ gốc: '+getBaseVerb(q.answer)+'</div><input class="fill-input" id="fill-in" placeholder="Gõ dạng đúng..." autocomplete="off" autocorrect="off" spellcheck="false">'" 
     + '<button class="btn-check" id="btn-chk">Kiểm tra</button>'
     + '</div>';
   var inp = document.getElementById('fill-in');
@@ -462,31 +482,29 @@ function doCheckFill(q) {
 
 // ── DRAG ──
 function renderDrag(q) {
-  // build 4 options that always include the answer, no duplicates
-  var pool = q.choices.slice();
-  // remove answer from pool then pick 3 wrong ones
-  var wrongs = pool.filter(function(x){ return x !== q.answer; });
-  wrongs = shuffle(wrongs).slice(0, 3);
-  var opts = shuffle([q.answer].concat(wrongs));
-
-  var gc = document.getElementById('game-content');
-  gc.innerHTML = '<div class="q-card">'
-    + tenseTag(q.tense)
-    + '<div class="q-text">'+hilite(q.q)+'</div>'
-    + (q.audio ? '<button class="q-audio-btn" id="abtn">🔊 Nghe câu hỏi</button>' : '')
-    + '</div>'
-    + '<div class="word-bank" id="word-bank"></div>';
-
-  var bank = document.getElementById('word-bank');
-  opts.forEach(function(opt) {
-    var chip = document.createElement('span');
-    chip.className = 'word-chip';
-    chip.textContent = opt;
-    chip.addEventListener('click', function() { pickWord(chip, opt, q.answer, q.explain); });
-    bank.appendChild(chip);
-  });
-
-  if (q.audio) { document.getElementById('abtn').addEventListener('click', function(){ doSpeak(q); }); }
+ window.selectedWords=[];
+ var shuffled=shuffle(q.words.slice());
+ var gc=document.getElementById('game-content');
+ gc.innerHTML='<div class="q-card">'+tenseTag(q.tense)+'<div class="q-text">🧩 Sắp xếp các từ thành câu đúng</div></div><div id="sentence-area" style="min-height:50px;background:#fff;border:2px dashed #a29bfe;border-radius:12px;padding:12px;margin-bottom:12px"></div><div class="word-bank" id="word-bank"></div><button class="btn-check" id="btn-check-drag">Kiểm tra</button>';
+ var bank=document.getElementById('word-bank');
+ shuffled.forEach(function(word){
+   var chip=document.createElement('span');
+   chip.className='word-chip';
+   chip.textContent=word;
+   chip.onclick=function(){
+      if(chip.classList.contains('used')) return;
+      chip.classList.add('used');
+      selectedWords.push(word);
+      document.getElementById('sentence-area').textContent=selectedWords.join(' ');
+   };
+   bank.appendChild(chip);
+ });
+ document.getElementById('btn-check-drag').onclick=function(){
+   if(answered) return;
+   answered=true;
+   var user=selectedWords.join(' ').trim();
+   afterAnswer(user===q.answer,q.answer,q.explain);
+ };
 }
 
 function pickWord(el, word, answer, explain) {
