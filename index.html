@@ -17,7 +17,7 @@
   --radius:18px;
   --amber:#e17055;
 }
-body{font-family:'Nunito',sans-serif;background:#f7f5ff;color:var(--text);min-height:100vh}
+body{font-family:'Nunito',sans-serif;background:#f5f5f5;color:var(--text);min-height:100vh}
 .wrap{max-width:420px;margin:0 auto;padding:20px 16px 40px}
 .screen{display:none}.screen.active{display:block}
 
@@ -135,6 +135,56 @@ body{font-family:'Nunito',sans-serif;background:#f7f5ff;color:var(--text);min-he
 .btn-row{display:flex;gap:10px}
 .btn-secondary{flex:1;background:var(--card);color:var(--text);border:2px solid #e0e0e0;border-radius:14px;padding:13px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:.15s}
 .btn-secondary:hover{border-color:var(--purple);color:var(--purple)}
+
+.improve-card{
+  background:#fff;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  border:1px solid #ece8ff;
+  text-align:left;
+  margin-bottom:18px;
+}
+
+.improve-row{
+  margin-bottom:16px;
+}
+
+.improve-row:last-child{
+  margin-bottom:0;
+}
+
+.improve-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:8px;
+}
+
+.tag-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.improve-tag{
+  display:inline-flex;
+  align-items:center;
+
+  padding:6px 12px;
+
+  background:#fce4e4;
+  color:var(--red);
+
+  border:none;
+  border-radius:30px;
+
+  font-size:12px;
+  font-weight:700;
+
+  line-height:1.2;
+}
+
 </style>
 </head>
 <body>
@@ -146,17 +196,7 @@ body{font-family:'Nunito',sans-serif;background:#f7f5ff;color:var(--text);min-he
     <h1>Grammar Quest</h1>
     <p>Hiện Tại Đơn & Hiện Tại Tiếp Diễn</p>
   </div>
-  <div id="best-streak-box"
-      style="text-align:center;
-              margin-top:8px;
-              margin-bottom:10px;
-              font-weight:700;
-              color:#e17055">
-  </div>
-  <div id="weakness-box"
-    style="text-align:center;
-            margin-bottom:16px;">
-  </div>
+
   <div class="cheatsheet">
     <h3>📋 Bảng gợi nhớ</h3>
     <div class="cs-row">
@@ -171,6 +211,14 @@ body{font-family:'Nunito',sans-serif;background:#f7f5ff;color:var(--text);min-he
         <div class="kw"><span>now</span><span>right now</span><span>at the moment</span><span>Look!</span></div>
       </div>
     </div>
+  </div>
+  <div id="best-streak-box"
+  style="
+  margin-bottom:12px;">
+  </div>
+  <div id="weakness-box"
+    style="text-align:center;
+            margin-bottom:16px;">
   </div>
   <div class="mode-section">
     <h2>Chọn dạng bài</h2>
@@ -510,12 +558,7 @@ var modeStats = JSON.parse(
   '{"mcq":{"sum":0,"count":0},"fill":{"sum":0,"count":0},"order":{"sum":0,"count":0},"id":{"sum":0,"count":0}}'
 );
 
-function updateBestStreakDisplay(){
-  setHTML(
-    'best-streak-box',
-    '🏆 Kỷ lục đúng liên tiếp: <b>' + bestStreak + '</b> câu'
-  );
-}
+function updateBestStreakDisplay(){}
 function updateWeaknessDisplay(){
 
   var stats = JSON.parse(
@@ -580,26 +623,41 @@ function updateWeaknessDisplay(){
 
   setHTML(
     'weakness-box',
+    `
+    <div class="improve-card">
 
-    '<div style="font-size:14px;margin-bottom:4px;">' +
-      (
-        tenseText.startsWith('🌟')
-          ? '<span style="font-weight:400;color:#636e72;">'+
-              tenseText+
-            '</span>'
-          : '<span style="font-weight:700;color:#e17055;">🎯 Cần cải thiện thì:</span> '+
-            '<span style="font-weight:400;color:#636e72;">'+
-              tenseText+
-            '</span>'
-      ) +
-    '</div>' +
+      <div class="improve-row">
+        <div class="improve-title">
+          🏆 Kỷ lục đúng liên tiếp: ${localStorage.getItem('bestStreak') || 0} câu
+        </div>
+      </div>
 
-    '<div style="font-size:14px;line-height:1.4;">' +
-      '<span style="font-weight:700;color:#e17055;">📝 Cần cải thiện dạng:</span> ' +
-      '<span style="font-weight:400;color:#636e72;">' +
-        weakModes.join(', ') +
-      '</span>' +
-    '</div>'
+      ${
+        weakTenses.length
+        ? `
+        <div class="improve-row">
+          <div class="improve-title">🎯 Cần cải thiện thì:</div>
+          <div class="tag-wrap">
+            ${weakTenses.map(t => `
+              <span class="improve-tag">${t}</span>
+            `).join('')}
+          </div>
+        </div>
+        `
+        : ''
+      }
+
+      <div class="improve-row">
+        <div class="improve-title">📝 Cần cải thiện dạng:</div>
+        <div class="tag-wrap">
+          ${weakModes.map(m => `
+            <span class="improve-tag">${m}</span>
+          `).join('')}
+        </div>
+      </div>
+
+    </div>
+    `
   );
   }
 // ── UTILS ──
