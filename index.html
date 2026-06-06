@@ -242,6 +242,16 @@ var MCQ_DATA=[
   {type:'aux',tense:'continuous',q:'___ you doing your homework now?',answer:'Are',choices:['Do','Does','Is','Are'],explain:'"you" + verb-ing → <b>Are</b>'},
   {type:'neg',tense:'simple',q:'He ___ eat vegetables. He only eats rice.',answer:"doesn't",choices:["don't","doesn't","isn't","aren't"],explain:'Phủ định ngôi 3 số ít → <b>doesn\'t</b>'},
   {type:'neg',tense:'continuous',q:"They ___ playing outside — it is raining!",answer:"aren't",choices:["don't","doesn't","isn't","aren't"],explain:'Phủ định tiếp diễn số nhiều → <b>aren\'t</b>'},
+  {type:'verb',tense:'simple',q:'Anna ___ her teeth twice a day.',answer:'brushes',choices:['brush','brushes','is brushing','are brushing'],explain:'"twice a day" → thói quen lặp lại, Anna là ngôi 3 số ít → <b>brushes</b>'},
+  {type:'verb',tense:'continuous',q:'The students ___ a test now.',answer:'are taking',choices:['take','takes','is taking','are taking'],explain:'"now" → hành động đang diễn ra, students (số nhiều) → <b>are taking</b>'},
+  {type:'verb',tense:'simple',q:'My uncle ___ in a hospital.',answer:'works',choices:['work','works','is working','are working'],explain:'Công việc thường xuyên của chú tôi → Simple Present, ngôi 3 số ít → <b>works</b>'},
+  {type:'verb',tense:'continuous',q:'I ___ dinner at the moment.',answer:'am cooking',choices:['cook','cooks','am cooking','are cooking'],explain:'"at the moment" → đang xảy ra, I → <b>am cooking</b>'},
+  {type:'aux',tense:'simple',q:'___ they play tennis every weekend?',answer:'Do',choices:['Do','Does','Is','Are'],explain:'"every weekend" → Simple Present, chủ ngữ "they" → <b>Do</b>'},
+  {type:'aux',tense:'continuous',q:'___ she talking on the phone now?',answer:'Is',choices:['Do','Does','Is','Are'],explain:'"now" + talking (V-ing) → Present Continuous, she → <b>Is</b>'},
+  {type:'neg',tense:'simple',q:'We ___ watch TV during class.',answer:"don't",choices:["don't","doesn't","isn't","aren't"],explain:'Phủ định ở Simple Present với chủ ngữ "we" → <b>don\'t</b>'},
+  {type:'neg',tense:'continuous',q:'He ___ studying now.',answer:"isn't",choices:["don't","doesn't","isn't","aren't"],explain:'"now" → Present Continuous, he → <b>isn\'t</b>'},
+  {type:'verb',tense:'simple',q:'The train ___ at 7 a.m. every day.',answer:'leaves',choices:['leave','leaves','is leaving','are leaving'],explain:'Lịch trình cố định + ngôi 3 số ít → <b>leaves</b>'},
+  {type:'verb',tense:'continuous',q:'Look! The horse ___ fast.',answer:'is running',choices:['runs','run','is running','are running'],explain:'"Look!" → hành động đang diễn ra, horse (số ít) → <b>is running</b>'},
 ];
 
 // ── DATA: FILL (điền từ — câu khác MCQ, có hint động từ gốc) ──
@@ -258,6 +268,16 @@ var FILL_DATA=[
   {tense:'continuous',q:'I ___ for my keys right now.',answer:'am looking',hint:'look',explain:'"right now" + I → <b>am looking</b>'},
   {tense:'simple',q:'The shop ___ at 8 a.m. every day.',answer:'opens',hint:'open',explain:'Lịch trình cố định, ngôi 3 số ít → <b>opens</b>'},
   {tense:'continuous',q:'She ___ a letter to her friend now.',answer:'is writing',hint:'write',explain:'"now" → <b>is writing</b>'},
+  {tense:'simple',q:'Jenny ___ her room every Saturday.',answer:'cleans',hint:'clean',explain:'"every Saturday" → thói quen, Jenny là ngôi 3 số ít → <b>cleans</b>'},
+  {tense:'continuous',q:'The boys ___ in the river now.',answer:'are swimming',hint:'swim',explain:'"now" → đang diễn ra, boys (số nhiều) → <b>are swimming</b>'},
+  {tense:'simple',q:'My father ___ to work by bus.',answer:'goes',hint:'go',explain:'Thói quen đi làm hằng ngày, ngôi 3 số ít → <b>goes</b>'},
+  {tense:'continuous',q:'I ___ a sandwich at the moment.',answer:'am eating',hint:'eat',explain:'"at the moment" → đang xảy ra, I → <b>am eating</b>'},
+  {tense:'simple',q:'The baby ___ a lot.',answer:'cries',hint:'cry',explain:'Đặc điểm thường xuyên của em bé, ngôi 3 số ít → <b>cries</b>'},
+  {tense:'continuous',q:'She ___ her project now.',answer:'is finishing',hint:'finish',explain:'"now" → Present Continuous, she → <b>is finishing</b>'},
+  {tense:'simple',q:'They ___ football every Sunday.',answer:'play',hint:'play',explain:'"every Sunday" → thói quen, they → <b>play</b>'},
+  {tense:'continuous',q:'We ___ for the bus right now.',answer:'are waiting',hint:'wait',explain:'"right now" → hành động đang diễn ra → <b>are waiting</b>'},
+  {tense:'simple',q:'A teacher ___ students.',answer:'helps',hint:'help',explain:'Nêu chức năng/chung chung của giáo viên → ngôi 3 số ít → <b>helps</b>'},
+  {tense:'continuous',q:'The bird ___ on the roof now.',answer:'is sitting',hint:'sit',explain:'"now" → Present Continuous, bird (số ít) → <b>is sitting</b>'},
 ];
 
 // ── DATA: ORDER (sắp xếp câu — các từ xáo trộn) ──
@@ -274,6 +294,16 @@ var ORDER_DATA=[
   {tense:'continuous',words:['She','is','reading','a','book','now','.'],answer:'She is reading a book now .',explain:'"now" → is + V-ing'},
   {tense:'simple',words:['He','does','not','like','spicy','food','.'],answer:'He does not like spicy food .',explain:'Phủ định ngôi 3 số ít → does not'},
   {tense:'continuous',words:['Look','!','A','cat','is','climbing','the','tree','.'],answer:'Look ! A cat is climbing the tree .',explain:'"Look!" + is + V-ing'},
+  {tense:'simple',words:['She','walks','to','school','every','day','.'],answer:'She walks to school every day .',explain:'"every day" → thói quen hằng ngày → Simple Present'},
+  {tense:'continuous',words:['They','are','eating','lunch','now','.'],answer:'They are eating lunch now .',explain:'"now" → đang diễn ra → are + V-ing'},
+  {tense:'simple',words:['My','father','drives','to','work','.'],answer:'My father drives to work .',explain:'Hoạt động thường xuyên → Simple Present, drives'},
+  {tense:'continuous',words:['I','am','doing','my','homework','.'],answer:'I am doing my homework .',explain:'I + am + V-ing → Present Continuous'},
+  {tense:'simple',words:['The','shop','opens','at','eight','.'],answer:'The shop opens at eight .',explain:'Giờ mở cửa cố định → Simple Present'},
+  {tense:'continuous',words:['She','is','drawing','a','picture','.'],answer:'She is drawing a picture .',explain:'is + drawing → Present Continuous'},
+  {tense:'simple',words:['We','visit','our','grandparents','often','.'],answer:'We visit our grandparents often .',explain:'"often" → dấu hiệu của Simple Present'},
+  {tense:'continuous',words:['The','children','are','laughing','.'],answer:'The children are laughing .',explain:'are + laughing → hành động đang diễn ra'},
+  {tense:'simple',words:['Birds','build','nests','in','trees','.'],answer:'Birds build nests in trees .',explain:'Sự thật/chung chung về loài chim → Simple Present'},
+  {tense:'continuous',words:['Mom','is','talking','to','a','neighbor','.'],answer:'Mom is talking to a neighbor .',explain:'is + talking → Present Continuous'},
 ];
 
 // ── DATA: IDENTIFY ──
@@ -292,6 +322,16 @@ var ID_DATA=[
   {q:'The children are running to the bus stop!',answer:'Present Continuous',explain:'Đang xảy ra → Present Continuous'},
   {q:'Water boils at 100 degrees Celsius.',answer:'Simple Present',explain:'Sự thật khoa học → Simple Present'},
   {q:'Dad is fixing the bicycle in the yard now.',answer:'Present Continuous',explain:'"now" + is fixing → Present Continuous'},
+  {q:'She goes jogging every morning.',answer:'Simple Present',explain:'"every morning" → thói quen → Simple Present'},
+  {q:'I am talking to my friend now.',answer:'Present Continuous',explain:'"now" + am talking → Present Continuous'},
+  {q:'Cats like milk.',answer:'Simple Present',explain:'Sự thật chung về loài mèo → Simple Present'},
+  {q:'The teacher is explaining the lesson.',answer:'Present Continuous',explain:'is explaining → hành động đang diễn ra'},
+  {q:'We usually have dinner at 7 p.m.',answer:'Simple Present',explain:'"usually" → dấu hiệu của Simple Present'},
+  {q:'Look! The bus is coming.',answer:'Present Continuous',explain:'"Look!" + is coming → Present Continuous'},
+  {q:'My brother plays chess well.',answer:'Simple Present',explain:'Thói quen/kỹ năng thường xuyên → Simple Present'},
+  {q:'They are cleaning the classroom now.',answer:'Present Continuous',explain:'"now" + are cleaning → Present Continuous'},
+  {q:'The Earth moves around the Sun.',answer:'Simple Present',explain:'Sự thật khoa học → Simple Present'},
+  {q:'She is wearing a blue dress today.',answer:'Present Continuous',explain:'today + is wearing → hành động/trạng thái hiện tại → Present Continuous'},
 ];
 
 // ── STATE ──
@@ -351,8 +391,7 @@ function renderQ(){
 function renderMCQ(q){
   var opts=shuffle(q.choices.slice());
   var gc=document.getElementById('game-content');
-  gc.innerHTML=tenseTag(q.tense)+'<div class="q-card"><p class="q-text">'+hilite(q.q)+'</p></div><div class="choices" id="choices-wrap"></div>';
-  var wrap=document.getElementById('choices-wrap');
+  gc.innerHTML='<div class="q-card"><p class="q-text">'+hilite(q.q)+'</p></div><div class="choices" id="choices-wrap"></div>';  var wrap=document.getElementById('choices-wrap');
   opts.forEach(function(opt){
     var btn=document.createElement('button');
     btn.className='choice-btn';btn.textContent=opt;
@@ -372,8 +411,8 @@ function checkMCQ(btn,chosen,answer,explain){
 // ── FILL (với hint động từ gốc) ──
 function renderFill(q){
   var gc=document.getElementById('game-content');
-  gc.innerHTML=tenseTag(q.tense)
-    +'<div class="q-card"><p class="q-text">'+hilite(q.q)+'</p></div>'
+  gc.innerHTML=
+    '<div class="q-card"><p class="q-text">'+hilite(q.q)+'</p></div>'
     +'<div class="fill-hint">💡 Gợi ý: chia động từ <strong>'+q.hint+'</strong> cho phù hợp</div>'
     +'<div class="fill-row"><input class="fill-input" id="fill-in" type="text" placeholder="Nhập dạng đúng của động từ..." autocomplete="off" autocorrect="off" spellcheck="false"><button class="btn-check" id="btn-chk">Kiểm tra</button></div>';
   var inp=document.getElementById('fill-in');
