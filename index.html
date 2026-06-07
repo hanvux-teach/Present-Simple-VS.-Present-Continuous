@@ -693,6 +693,9 @@ document.getElementById('btn-menu').addEventListener('click',function(){show('sc
 
 // ── GAME FLOW ──
 function startGame(){
+  if (typeof gtag === 'function') {
+    gtag('event', 'quiz_start');
+  }
   sndFinish();
   var pool;
   if(mode==='id') pool=ID_DATA;
