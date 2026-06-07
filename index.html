@@ -697,7 +697,9 @@ function startGame(){
 
   if (typeof gtag === 'function') {
     console.log("GTAG EXISTS");
-    gtag('event', 'quiz_start');
+    gtag('event', 'quiz_start', {
+      debug_mode: true
+    });
   } else {
     console.log("GTAG NOT FOUND");
   }
