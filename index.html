@@ -693,9 +693,15 @@ document.getElementById('btn-menu').addEventListener('click',function(){show('sc
 
 // ── GAME FLOW ──
 function startGame(){
+  console.log("START CLICKED");
+
   if (typeof gtag === 'function') {
+    console.log("GTAG EXISTS");
     gtag('event', 'quiz_start');
+  } else {
+    console.log("GTAG NOT FOUND");
   }
+
   sndFinish();
   var pool;
   if(mode==='id') pool=ID_DATA;
